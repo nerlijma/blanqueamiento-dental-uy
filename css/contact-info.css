@@ -1,0 +1,79 @@
+/* Estilos para la información de contacto horizontal */
+.contact-info-rows {
+    margin-top: 30px;
+}
+
+.contact-info-rows:before {
+    content: '';
+    width: 105px;
+    height: 4px;
+    display: block;
+    background: #ffffff;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.info-row i {
+    padding-right: 5px !important;
+}
+
+.info-row a, 
+.info-row p {
+    display: flex;
+    align-items: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2em;
+    margin: 0;
+    color: #ffffff;
+}
+
+.info-row a span, 
+.info-row p span {
+    line-height: 1.5em;
+    font-size: 0.8em;
+}
+
+.separator {
+    margin: 0 15px;
+    color: #ffffff;
+    font-size: 1.2em;
+}
+
+.footer_i {
+    margin-right: 10px;
+    font-size: 1.3em;
+    display: inline-block;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Media queries para responsividad */
+@media only screen and (max-width: 768px) {
+    .info-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .separator {
+        display: none;
+    }
+    
+    .info-row a, 
+    .info-row p {
+        margin-bottom: 15px !important;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .contact-info-rows:before {
+        margin-top: 25px;
+        margin-bottom: 20px;
+    }
+}
