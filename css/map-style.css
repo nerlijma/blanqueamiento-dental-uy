@@ -5,7 +5,7 @@
 }
 
 #ubicacion .main_title {
-    padding: 60px 0 30px;
+    padding: 20px 0 0px;
 }
 
 .map-container {
@@ -48,11 +48,48 @@
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 30px 0 60px;
+    background-color: #f8f9fa;
 }
 
 .location-item {
     text-align: center;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.location-marker {
+    width: 75px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.location-item h3 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: var(--azul-texto);
+    font-weight: bold;
+}
+
+.location-item p {
+    margin-bottom: 8px;
+}
+
+.directions-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: var(--azul-boton);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease !important;
+}
+
+.directions-link:hover {
+    color: var(--azul-oscuro);
+    text-decoration: underline;
 }
 
 #ubicacion h3 {

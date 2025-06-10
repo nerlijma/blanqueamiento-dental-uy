@@ -1327,6 +1327,9 @@ li.i1_i3_i5 {
     font-size: 1.2em;
 }
 
+.main_title {
+    margin: 50px auto 30px auto;   
+}
 
 /* MEDIA QUERIES */
 @media only screen and (max-width: 1300px) {
@@ -1576,10 +1579,6 @@ li.i1_i3_i5 {
         top: 73px
     }
 
-    .main_title {
-        margin: 70px auto 60px auto
-    }
-
     .main_title h1 {
         padding: 10px 10px 0 10px;
         max-width: 100%;
@@ -1588,6 +1587,7 @@ li.i1_i3_i5 {
     }
 
     .main_title {
+       margin: 50px auto 30px auto;        
         font-size: 1.4em;
         padding: 0;
         max-width: 100%;
