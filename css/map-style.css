@@ -1,0 +1,65 @@
+/* Map styles */
+#ubicacion {
+    background-color: #f8f9fa;
+    padding: 0;
+}
+
+#ubicacion .main_title {
+    padding: 60px 0 30px;
+}
+
+.map-container {
+    height: 500px;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+/* Override global transition for map elements to prevent jerky movement */
+.map-container * {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+}
+
+/* Map interactive message */
+.map-click-instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 15px;
+    border-radius: 5px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0.8;
+    font-weight: bold;
+    color: #333;
+    display: none; /* Hidden by default, shown with JS */
+}
+
+.map-locations {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 30px 0 60px;
+}
+
+.location-item {
+    text-align: center;
+    padding: 15px;
+}
+
+#ubicacion h3 {
+    color: var(--azul-texto);
+    margin-bottom: 5px;
+}
+
+#ubicacion .fas {
+    margin-right: 8px;
+}

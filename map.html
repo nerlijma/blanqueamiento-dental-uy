@@ -1,53 +1,7 @@
-
-// Map interaction control - allows interaction only when clicked
-jQuery(document).ready(function($){
-  var mapInteractionEnabled = false;
-  var mapElement = document.getElementById('map_canvas');
-  
-  // Function to disable map interactions
-  function disableMapInteraction() {
-    if (window.googleMap && mapInteractionEnabled) {
-      window.googleMap.setOptions({
-        scrollwheel: false,
-        draggable: false,
-        gestureHandling: 'none'
-      });
-      mapInteractionEnabled = false;
-    }
-  }
-  
-  // Function to enable map interactions
-  function enableMapInteraction() {
-    if (window.googleMap) {
-      window.googleMap.setOptions({
-        scrollwheel: true,
-        draggable: true,
-        gestureHandling: 'cooperative'
-      });
-      mapInteractionEnabled = true;
-    }
-  }
-  
-  // Add click event to enable interaction
-  $(mapElement).on('click', function() {
-    enableMapInteraction();
-  });
-  
-  // Add mouseleave event to disable interaction when mouse leaves the map
-  $(mapElement).on('mouseleave', function() {
-    disableMapInteraction();
-  });
-  
-  // Additional jQuery document ready functions
-  // Adjust visual bullets sliders
-  $('.swiper-pagination-bullet').html('');
-
-  setTimeout(function() {
-      $('a:contains("Free Google Reviews widget")').remove();
-  }, 2500);
-});
-
-// Google Maps initialization
+<html>
+<head>
+    <link rel="stylesheet" href="css/map-style.css?v=1" />    
+    <script>
 function initMap() {
     // The latitude and longitude to center the map (always required)
     var pocitosLatLng = new google.maps.LatLng(-34.916200, -56.1509800); // zingman pocitos
@@ -58,29 +12,30 @@ function initMap() {
     var centerLng = (pocitosLatLng.lng() + centroLatLng.lng()) / 2;
     var mapCenter = new google.maps.LatLng(centerLat, centerLng);
     
-    // Basic options for the map - initially with interactions disabled
+    // Map style
+    var mapStyle = [{ 'featureType': 'water', 'stylers': [{ 'visibility': 'on' }, { 'color': '#428BCA' }] }, { 'featureType': 'landscape', 'stylers': [{ 'color': '#f2e5d4' }] }, { 'featureType': 'road.highway', 'elementType': 'geometry', 'stylers': [{ 'color': '#c5c6c6' }] }, { 'featureType': 'road.arterial', 'elementType': 'geometry', 'stylers': [{ 'color': '#e4d7c6' }] }, { 'featureType': 'road.local', 'elementType': 'geometry', 'stylers': [{ 'color': '#fbfaf7' }] }, { 'featureType': 'poi.park', 'elementType': 'geometry', 'stylers': [{ 'color': '#c5dac6' }] }, { 'featureType': 'administrative', 'stylers': [{ 'visibility': 'on' }, { 'lightness': 33 }] }, { 'featureType': 'road' }, { 'featureType': 'poi.park', 'elementType': 'labels', 'stylers': [{ 'visibility': 'on' }, { 'lightness': 20 }] }, {}, { 'featureType': 'road', 'stylers': [{ 'lightness': 20 }] }];
+
+    // Basic options for the map
     var mapOptions = {
         zoom: 14, // Zoom out a bit to show both locations
-        scrollwheel: false, // Disable scrollwheel by default
-        draggable: false, // Disable dragging by default
-        gestureHandling: 'none', // Disable gestures by default
+        scrollwheel: true,
         center: mapCenter,
         mapTypeControl: false,
         streetViewControl: false, // Remove Street View control
         fullscreenControl: false, // Remove fullscreen control for cleaner interface
+        gestureHandling: 'cooperative', // Fixes the weird dragging movement
+        styles: mapStyle
     };
 
     // Get map element
     var mapElement = document.getElementById('map_canvas');
     
-    // Create map - make it globally accessible
-    window.googleMap = new google.maps.Map(mapElement, mapOptions);
-    var map = window.googleMap;
+    // Create map
+    var map = new google.maps.Map(mapElement, mapOptions);
 
-    // Pin image with proper size
+    // Pin image with half size (original is 150x194)
     var image = {
-        url: 'img/marker_blue_oz.png',
-        scaledSize: new google.maps.Size(75, 97) // Half of original size (150x194)
+        url: 'img/marker_blue_oz.png'
     };
 
     // Add marker for Pocitos
@@ -133,33 +88,18 @@ function initMap() {
             map.setZoom(15);
         }
     });
+
+    // Open Pocitos info window by default
+    infowindowPocitos.open(map, markerPocitos);
 }
 
-// Swiper slider configuration
-var swiper2 = new Swiper('.swiper-container_promos', {
-    slidesPerView: 1,
-    spaceBetween: 0,
-    loop: false,
-    autoplay: {
-        delay: 3000,
-    },
-    clickable: true,
-    dynamicBullets: true,
-    dynamicMainBullets: 4,
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
-        },
-    },
-});
+    </script>
+</head>
+<body>
+    <div id="map_canvas" class="map-container"></div>
+        <script async
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5nus8u5VRTIcFJhzX7esewWOsg_oG9yE&loading=async&callback=initMap">
+    </script>
 
-// Start steps slider
-$(window).scroll(function () {
-    // $steps_offset = $('#target_steps').offset();
-    // $doc_position = $(document).scrollTop();
-    // if ($doc_position => $steps_offset) {
-    //     swiper2.autoplay.start();
-    // }
-});
+</body>
+</html>

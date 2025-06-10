@@ -19,7 +19,7 @@
 
 }
 
-* {
+*:not(.map-container *) {
 	-webkit-transition: all ease 0.2s;
 	-moz-transition: all ease 0.2s;
 	-o-transition: all ease 0.2s;
@@ -2597,4 +2597,37 @@ li.i1_i3_i5 {
 /* GOOGLE REVIEWS */
 #google-reviews {
     margin-bottom: 30px;
+}
+
+/* GOOGLE MAPS */
+/* Agregar estos estilos al archivo CSS */
+.map-container {
+    height: 300px;
+    width: 100%;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#ubicacion {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.map-container {
+    height: 400px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 15px;
+}
+
+#ubicacion h3 {
+    color: var(--azul-texto);
+    margin-bottom: 5px;
+}
+
+#ubicacion .fas {
+    margin-right: 8px;
 }
