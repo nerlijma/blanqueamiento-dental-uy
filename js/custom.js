@@ -2,6 +2,9 @@ $(document).ready(function () {
     //ajuste visual bullets sliders
     $('.swiper-pagination-bullet').html('');
 
+    setTimeout(function() {
+      $('a:contains("Free Google Reviews widget")').remove();
+    }, 2500);
 
 });
 
@@ -27,9 +30,9 @@ var swiper2 = new Swiper('.swiper-container_promos', {
 
 //start steps slider
 $(window).scroll(function () {
-    $steps_offset = $('#target_steps').offset();
-    $doc_position = $(document).scrollTop();
-    if ($doc_position => $steps_offset) {
-        swiper2.autoplay.start();
-    }
+    // $steps_offset = $('#target_steps').offset();
+    // $doc_position = $(document).scrollTop();
+    // if ($doc_position => $steps_offset) {
+    //     swiper2.autoplay.start();
+    // }
 });
