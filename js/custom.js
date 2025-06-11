@@ -79,7 +79,7 @@ function initMap() {
 
     // Pin image with proper size
     var image = {
-        url: 'img/marker_blue_oz.png',
+        url: 'img/marker_blue_strong_oz.png',
         scaledSize: new google.maps.Size(75, 97) // Half of original size (150x194)
     };
 
@@ -140,9 +140,9 @@ var swiper2 = new Swiper('.swiper-container_promos', {
     slidesPerView: 1,
     spaceBetween: 0,
     loop: false,
-    autoplay: {
-        delay: 3000,
-    },
+    // autoplay: {
+    //     delay: 3000,
+    // },
     clickable: true,
     dynamicBullets: true,
     dynamicMainBullets: 4,
