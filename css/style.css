@@ -106,7 +106,7 @@ a {
 
 #inicio {
 	background-color: #ffffff;
-	background-image: url('../img/inicio-bg3.png');
+	background-image: url('../img/inicio-bg3.webp');
 	background-repeat: no-repeat;
 	background-position: top -100px center;
 	background-size: cover;
@@ -198,7 +198,7 @@ a {
 @media (max-width: 992px) {
 
     #inicio {
-	    background-image: url('../img/mujer-m-2.png');
+	    background-image: url('../img/mujer-m-2.webp');
 	    /* background-size: cover !important; */
 	    background-repeat: no-repeat;
 	    background-position: bottom center !important;

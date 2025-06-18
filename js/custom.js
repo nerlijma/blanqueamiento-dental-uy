@@ -79,7 +79,8 @@ function initMap() {
 
     // Pin image with proper size
     var image = {
-        url: 'img/marker_blue_strong_oz.png'
+        url: 'img/marker_blue_strong_oz.webp',
+        scaledSize: new google.maps.Size(75, 97) // Half of original size (150x194)
     };
 
     // Add marker for Pocitos
